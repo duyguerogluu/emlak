@@ -1,3 +1,4 @@
+import 'package:emlak/components/drawer_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,6 +14,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: DrawerMenu(),
         body: Center(
           child: const Text("HomeScreen"),
         ),

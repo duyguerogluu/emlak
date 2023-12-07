@@ -1,4 +1,5 @@
 import 'package:emlak/components/bottom_bar.dart';
+import 'package:emlak/components/drawer_menu.dart';
 import 'package:emlak/riverpod/riverpod_management.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,6 +22,7 @@ class _BaseScaffoldState extends ConsumerState<BaseScaffold> {
     var watch = ref.watch(bottomNavBarRiverpod);
     return Scaffold(
       bottomNavigationBar: const BottomNavBar(),
+      drawer: DrawerMenu(),
       appBar: AppBar(
         title: Text(watch.appbarTitle()),
         actions: <Widget>[

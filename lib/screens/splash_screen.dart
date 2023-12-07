@@ -1,5 +1,6 @@
 import 'package:emlak/functions/duygu_nav.dart';
 import 'package:emlak/screens/base_scafold.dart';
+import 'package:emlak/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
