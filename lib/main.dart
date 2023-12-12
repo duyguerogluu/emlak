@@ -1,4 +1,6 @@
+import 'package:emlak/components/advert_card.dart';
 import 'package:emlak/functions/duygu_nav.dart';
+import 'package:emlak/screens/advert_screen.dart';
 import 'package:emlak/screens/base_scafold.dart';
 import 'package:emlak/screens/home_screen.dart';
 import 'package:emlak/screens/splash_screen.dart';
@@ -16,8 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'emlak',
-      initialRoute: '/splash',
+      initialRoute: 'advert',
       routes: {
+        'advert': (context) => const AdvertScreen(),
         '/splash': (context) => const SplashScreen(),
         '/home': (context) => const HomeScreen(),
       },
@@ -27,7 +30,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BaseScaffold(),
     );
   }
 }
