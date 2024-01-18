@@ -13,7 +13,10 @@ class _AdvertScreenState extends ConsumerState<AdvertScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: List.generate(100, (i) => AdvertCard())),
+      appBar: AppBar(),
+      body: ListView(
+        children: List.generate(100, (i) => AdvertCard()),
+      ),
     );
   }
 }

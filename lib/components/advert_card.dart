@@ -1,3 +1,5 @@
+import 'package:emlak/functions/duygu_nav.dart';
+import 'package:emlak/screens/advert_card_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,6 +14,9 @@ class _AdvertCardState extends ConsumerState<AdvertCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        DuyguNav.push(const AdvertDetailScreen());
+      },
       child: SizedBox(
         height: 100,
         child: Card(
@@ -45,6 +50,19 @@ class _AdvertCardState extends ConsumerState<AdvertCard> {
                       "İlan açıklaması açıklmaası açıklaması açıklaması",
                       style: TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 12),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text(
+                          "1.000.000 TL",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.lightBlueAccent,
+                          ),
+                        ),
+                      ),
                     )
                   ],
                 ),
