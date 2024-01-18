@@ -25,6 +25,7 @@ dependencies:
   get_storage: ^2.1.1
   floating_action_bubble: ^1.1.4
   flutter_speed_dial: ^7.0.0
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:

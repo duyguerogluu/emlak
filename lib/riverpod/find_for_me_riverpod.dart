@@ -27,6 +27,20 @@ class FindForMeRiverpod extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> launchWhatsapp() async {
+    String phoneNumber = '+905078590490';
+    String message = 'Test Mesajı';
+
+    String url = 'https://wa.me/$phoneNumber/?text=${Uri.encodeFull(message)}';
+
+    // URL'yi açın
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'WhatsApp bağlantısını açarken hata oluştu';
+    }
+  }
+
   void dropdownCallBack(String? selectedValue) {
     if (selectedValue is String) {
       dropdownValue = selectedValue;
