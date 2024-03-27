@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FindForMeRiverpod extends ChangeNotifier {
@@ -34,10 +35,10 @@ class FindForMeRiverpod extends ChangeNotifier {
     String url = 'https://wa.me/$phoneNumber/?text=${Uri.encodeFull(message)}';
 
     // URL'yi açın
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
     } else {
-      throw 'WhatsApp bağlantısını açarken hata oluştu';
+      debugPrint('WhatsApp bağlantısını açarken hata oluştu');
     }
   }
 

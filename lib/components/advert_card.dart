@@ -2,6 +2,7 @@ import 'package:emlak/functions/duygu_nav.dart';
 import 'package:emlak/screens/advert_card_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:octo_image/octo_image.dart';
 
 class AdvertCard extends ConsumerStatefulWidget {
   const AdvertCard({super.key});
@@ -27,13 +28,18 @@ class _AdvertCardState extends ConsumerState<AdvertCard> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(10.0),
-                  topLeft: Radius.circular(10.0),
-                ),
-                child: Image.network(
-                  "https://picsum.photos/300",
+              OctoImage(
+                height: 100,
+                width: 96,
+                image: NetworkImage("https://picsum.photos/300"),
+                progressIndicatorBuilder:
+                    OctoProgressIndicator.circularProgressIndicator(),
+                imageBuilder: (context, child) => ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(10.0),
+                    topLeft: Radius.circular(10.0),
+                  ),
+                  child: child,
                 ),
               ),
               Padding(
