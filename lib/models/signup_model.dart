@@ -1,42 +1,42 @@
-// To parse this JSON data, do
-//
-//     final signupModel = signupModelFromJson(jsonString);
-
 import 'dart:convert';
 
 SignupModel signupModelFromJson(String str) =>
-    SignupModel.fromJson(json.decode(str));
+    SignupModel.fromMap(jsonDecode(str));
 
-String signupModelToJson(SignupModel data) => json.encode(data.toJson());
+String signupModelToJson(SignupModel data) => jsonEncode(data.toMap);
 
 class SignupModel {
-  String? adi;
-  String? soyadi;
-  String? telefon;
-  String? email;
-  String? sifre;
+  final String username;
+  final String password;
+  final String firstName;
+  final String lastName;
+  final String phone;
+  final String email;
 
   SignupModel({
-    this.adi,
-    this.soyadi,
-    this.telefon,
-    this.email,
-    this.sifre,
+    required this.username,
+    required this.password,
+    required this.firstName,
+    required this.lastName,
+    required this.phone,
+    required this.email,
   });
 
-  factory SignupModel.fromJson(Map<String, dynamic> json) => SignupModel(
-        adi: json["Adi"],
-        soyadi: json["Soyadi"],
-        telefon: json["Telefon"],
-        email: json["Email"],
-        sifre: json["Sifre"],
+  factory SignupModel.fromMap(Map<String, dynamic> json) => SignupModel(
+        username: json["username"],
+        password: json["password"],
+        firstName: json["first_name"],
+        lastName: json["last_name"],
+        phone: json["phone"],
+        email: json["email"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "Adi": adi,
-        "Soyadi": soyadi,
-        "Telefon": telefon,
-        "Email": email,
-        "Sifre": sifre,
+  Map<String, dynamic> get toMap => {
+        "username": username,
+        "password": password,
+        "first_name": firstName,
+        "last_name": lastName,
+        "phone": phone,
+        "email": email,
       };
 }

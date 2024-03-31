@@ -1,11 +1,18 @@
 import 'package:emlak/components/photo_gallery.dart';
+import 'package:emlak/functions/date_utils.dart';
 import 'package:emlak/functions/duygu_nav.dart';
+import 'package:emlak/models/advert_model.dart';
 import 'package:emlak/screens/photo_gallery_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AdvertCardDetail extends ConsumerStatefulWidget {
-  const AdvertCardDetail({super.key});
+  const AdvertCardDetail({
+    super.key,
+    required this.advert,
+  });
+
+  final AdvertModel advert;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -38,21 +45,21 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            "Yenişehir Satılık Daire",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            widget.advert.title,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(0.0),
           child: Text(
-            "10.000.000 TL",
-            style: TextStyle(
+            "${widget.advert.price.amount}₺",
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,
             ),
           ),
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -81,7 +88,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "10100101011001",
+                  widget.advert.advertId!,
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -91,7 +98,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -120,7 +127,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "10 Aralık 2023",
+                  widget.advert.created!.dMMMy(),
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -130,7 +137,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -159,7 +166,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "Satılık DAİRE",
+                  widget.advert.advertType,
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -169,7 +176,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -184,7 +191,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    "m2",
+                    "Metrekare",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: desFS,
@@ -198,7 +205,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "300",
+                  widget.advert.m2Gross.toString(),
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -208,7 +215,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -237,7 +244,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "4+1",
+                  widget.advert.rooms.toRoomCount,
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -247,7 +254,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -276,7 +283,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "3",
+                  widget.advert.apartmentFloor.toString(),
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -286,7 +293,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -315,7 +322,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "10",
+                  widget.advert.apartmentTotalFloor.toString(),
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -325,7 +332,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -354,7 +361,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  "Kombi (Doğalgaz)",
+                  widget.advert.heatingType,
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                     fontSize: desFS,
@@ -364,7 +371,8 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        /*
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -403,7 +411,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -442,7 +450,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -481,7 +489,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -520,7 +528,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black,
           thickness: 0.2,
@@ -559,6 +567,7 @@ class _AdvertCarDetailState extends ConsumerState<AdvertCardDetail> {
             ),
           ],
         ),
+        */
       ],
     ));
   }

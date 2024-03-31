@@ -27,7 +27,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    var model = ref.read(signup);
+    //var model = ref.read(signup);
 
     return SafeArea(
       child: Padding(
@@ -70,7 +70,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                             ),
                           ),
                           child: TextFormField(
-                            controller: model.adi,
+                            //controller: model.adi,
                             cursorColor: Colors.purpleAccent,
                             style: const TextStyle(
                                 color: Color.fromARGB(255, 12, 98, 22)),
@@ -92,7 +92,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                             ),
                           ),
                           child: TextFormField(
-                            controller: model.soyadi,
+                            //controller: model.soyadi,
                             cursorColor: Colors.purpleAccent,
                             style: const TextStyle(
                                 color: Color.fromARGB(255, 12, 98, 22)),
@@ -114,7 +114,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                             ),
                           ),
                           child: TextFormField(
-                            controller: model.telefon,
+                           // controller: model.telefon,
                             keyboardType: TextInputType.phone,
                             cursorColor: Colors.purpleAccent,
                             style: const TextStyle(
@@ -137,7 +137,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                             ),
                           ),
                           child: TextFormField(
-                            controller: model.email,
+                            //controller: model.email,
                             keyboardType: TextInputType.emailAddress,
                             cursorColor: Colors.purpleAccent,
                             style: const TextStyle(
@@ -160,7 +160,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                               ),
                             ),
                             child: TextFormField(
-                              controller: model.sifre,
+                              //controller: model.sifre,
                               cursorColor: Colors.purpleAccent,
                               obscureText: _ishidden ? true : false,
                               style: TextStyle(
@@ -198,7 +198,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                         setState(() {
                           isProcessing = true;
                         });
-                        await model.fetchSignup(context);
+                        //await model.fetchSignup(context);
                         setState(() {
                           isProcessing = false;
                         });

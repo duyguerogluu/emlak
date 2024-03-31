@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const SplashScreen(),
         '/home': (context) => const HomeScreen(),
         '/photogallery': (context) => const PhotoGalleryScreen(),
-        '/advertcarddetail': (context) => const AdvertCardDetail(),
       },
       debugShowCheckedModeBanner: false,
       navigatorKey: DuyguNav.navigatorKey,

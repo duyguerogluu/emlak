@@ -106,7 +106,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   for (int i = 0; i < 4; i++)
                     GestureDetector(
                       onTap: () {
-                        DuyguNav.push(const AdvertDetailScreen());
+                        //DuyguNav.push(const AdvertDetailScreen());
                       },
                       child: Container(
                         alignment: Alignment.center,
@@ -136,15 +136,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ],
                 options: CarouselOptions(),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 1.8,
-                  child: ListView(
-                    children: List.generate(10, (i) => const AdvertCard()),
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              //   child: SizedBox(
+              //     height: MediaQuery.of(context).size.height / 1.8,
+              //     child: ListView(
+              //       children: List.generate(10, (i) => const AdvertCard()),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),

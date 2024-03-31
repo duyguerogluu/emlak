@@ -2,7 +2,6 @@ import 'package:emlak/functions/drawer_text_styles.dart';
 import 'package:emlak/functions/duygu_nav.dart';
 import 'package:emlak/riverpod/riverpod_management.dart';
 import 'package:emlak/screens/advert_screen.dart';
-import 'package:emlak/screens/announcement_screen.dart';
 import 'package:emlak/screens/user_setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -125,7 +124,7 @@ class _BaseScaffoldState extends ConsumerState<BaseScaffold> {
               ),
               onTap: () {
                 Navigator.pop(context); // Drawer'ı kapat
-                DuyguNav.push(AnnouncementScreen());
+               
                 print('Ayarlar seçildi');
               },
             ),

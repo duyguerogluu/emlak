@@ -1,53 +1,73 @@
-// To parse this JSON data, do
-//
-//     final userModel = userModelFromJson(jsonString);
-
 import 'dart:convert';
 
-UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
-
-String userModelToJson(UserModel data) => json.encode(data.toJson());
+import 'advert_model.dart';
 
 class UserModel {
-  int? id;
-  String? adi;
-  String? soyadi;
-  String? telefon;
-  String? email;
-  String? sifre;
-  bool? yetkili;
-  String? yetkiDurum;
+  final DateTime? created;
+  final DateTime? updated;
+  final List<AdvertModel> adverts;
+  final String? id;
+  final String? username;
+  final String? firstName;
+  final String? lastName;
+  final List<Location> location;
 
   UserModel({
+    this.created,
+    this.updated,
+    this.adverts = const [],
     this.id,
-    this.adi,
-    this.soyadi,
-    this.telefon,
-    this.email,
-    this.sifre,
-    this.yetkili,
-    this.yetkiDurum,
+    this.username,
+    this.firstName,
+    this.lastName,
+    this.location = const [],
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id: json["ID"],
-        adi: json["Adi"],
-        soyadi: json["Soyadi"],
-        telefon: json["Telefon"],
-        email: json["Email"],
-        sifre: json["Sifre"],
-        yetkili: json["Yetkili"],
-        yetkiDurum: json["YetkiDurum"],
+  UserModel copyWith({
+    DateTime? created,
+    DateTime? updated,
+    List<AdvertModel>? adverts,
+    String? id,
+    String? username,
+    String? firstName,
+    String? lastName,
+    String? password,
+    List<Location>? location,
+  }) =>
+      UserModel(
+        created: created ?? this.created,
+        updated: updated ?? this.updated,
+        adverts: adverts ?? this.adverts,
+        id: id ?? this.id,
+        username: username ?? this.username,
+        firstName: firstName ?? this.firstName,
+        lastName: lastName ?? this.lastName,
+        location: location ?? this.location,
       );
 
-  Map<String, dynamic> toJson() => {
-        "ID": id,
-        "Adi": adi,
-        "Soyadi": soyadi,
-        "Telefon": telefon,
-        "Email": email,
-        "Sifre": sifre,
-        "Yetkili": yetkili,
-        "YetkiDurum": yetkiDurum,
+  factory UserModel.fromMap(Map<String, dynamic> json) => UserModel(
+        created: DateTime.tryParse(json["created"]),
+        updated:
+            DateTime.tryParse(json["updated"]),
+        adverts: (json['adverts'] as List).map((e) => AdvertModel.fromMap(e)).toList(),
+        id: json["_id"],
+        username: json["username"],
+        firstName: json["first_name"],
+        lastName: json["last_name"],
+        location: (json['location'] as List).map((e) => Location.fromMap(e)).toList(),
+      );
+
+  Map<String, dynamic> get toMap => {
+        "created": created?.toIso8601String(),
+        "updated": updated?.toIso8601String(),
+        "adverts": adverts.map((e) => e.toMap),
+        "_id": id,
+        "username": username,
+        "first_name": firstName,
+        "last_name": lastName,
+        "location": location.map((e) => e.toString()).toList(),
       };
+
+  @override
+  String toString() => jsonEncode(toMap);
 }

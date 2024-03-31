@@ -1,5 +1,4 @@
 import 'package:emlak/functions/duygu_nav.dart';
-import 'package:emlak/screens/announcement_screen.dart';
 import 'package:emlak/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +56,6 @@ class BottomNavBarRiverpod extends ChangeNotifier {
         return IconButton(
           icon: const Icon(Icons.notifications),
           onPressed: () {
-            DuyguNav.push(const AnnouncementScreen());
           },
         );
       case 0:
@@ -65,7 +63,6 @@ class BottomNavBarRiverpod extends ChangeNotifier {
         return IconButton(
           icon: const Icon(Icons.notifications),
           onPressed: () {
-            DuyguNav.push(const AnnouncementScreen());
           },
         );
     }
