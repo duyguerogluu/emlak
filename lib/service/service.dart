@@ -1,3 +1,20 @@
+/*
+ *  This file is part of emlak.
+ *
+ *  emlak is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  emlak is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *   along with emlak.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import 'dart:convert';
 import 'package:bcrypt/bcrypt.dart';
 import 'package:emlak/models/advert_model.dart';
@@ -104,13 +121,27 @@ class Service {
     }
   }
 
-  static Future<SignupModel?> signupCall({SignupModel? signupModel}) async {
+  static Future<SignupModel?> signupCall({
+    required String username,
+    required String password,
+    required String firstName,
+    required String lastName,
+    required String phone,
+    required String email,
+  }) async {
     var user = 'your_proxy_username';
     var pass = 'your_proxy_password';
 
     var basicAuth = 'Basic ' + base64Encode(utf8.encode('$user:$pass'));
 
-    final jsonData = signupModel?.toMap;
+    Map<String, dynamic> jsonData = {
+      "username": username,
+      "password": password,
+      "firstName": firstName,
+      "lastName": lastName,
+      "phone": phone,
+      "email": email,
+    };
 
     debugPrint("AUTH: $basicAuth");
 
